@@ -1,0 +1,456 @@
+{
+	"info": {
+		"_postman_id": "e818c087-bc3f-4b45-9468-e8b69ea7d966",
+		"name": "Ecomerce Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32864563",
+		"_collection_link": "https://www.postman.com/payload-geoscientist-50412741/workspace/ecommerce-api-test/collection/32864563-e818c087-bc3f-4b45-9468-e8b69ea7d966?action=share&source=collection_link&creator=32864563"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sigup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"aman2\",\n  \"password\": \"12345\",\n   \"role\":\"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"vendortest\",\n  \"password\": \"vendor123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "getAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk4NmJkMzUxZGEyMTI3MzE0YWNiNTYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzgwNTcyMzgsImV4cCI6MTczODA2MDgzOH0.8DU3Kih-xfAg6KypeFduBYZMRzwwAqRq3YtT84XMmX4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/admin/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"admin",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllVendors",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{vault:json-web-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/admin/vendors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"admin",
+								"vendors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllStaff",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{vault:json-web-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/admin/staffs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"admin",
+								"staffs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{vault:json-web-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/admin/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"admin",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addProduct",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{vault:json-web-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"TV\",\n  \"description\": \"Latest TV with 128GB storage\",\n  \"category\": \"Electronics\",\n  \"startDate\": \"2025-01-01T00:00:00.000Z\",\n  \"expiryDate\": \"2025-01-08T00:00:00.000Z\",\n  \"deliveryOption\": \"Free Delivery\",\n  \"deliveryAmount\": 0,\n  \"images\": [\"image1.jpg\", \"image2.jpg\"],\n  \"oldPrice\": 499.99,\n  \"newPrice\": 399.99,\n  \"productURL\": \"https://example.com/products/smartphone-xtt5555\",\n  \"vendor\": \"67987a3b567565f1a476808c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/admin/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"admin",
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Staff",
+			"item": [
+				{
+					"name": "getAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk4NmQ0NTgxMTk0OTAwYmYzYzc4ZWEiLCJyb2xlIjoic3RhZmYiLCJpYXQiOjE3MzgwNTg0NjQsImV4cCI6MTczODA2MjA2NH0.Zh7pnNKrJc6zmDVYpVx_nj69uI9ji9wERBW4VNE8dio",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/staff/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"staff",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addProducts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{vault:json-web-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"iphone 16\",\n  \"description\": \"Latest TV with 128GB storage\",\n  \"category\": \"Electronics\",\n  \"startDate\": \"2025-01-01T00:00:00.000Z\",\n  \"expiryDate\": \"2025-01-08T00:00:00.000Z\",\n  \"deliveryOption\": \"Free Delivery\",\n  \"deliveryAmount\": 0,\n  \"images\": [\"image1.jpg\", \"image2.jpg\"],\n  \"oldPrice\": 499.99,\n  \"newPrice\": 399.99,\n  \"productURL\": \"https://example.com/products/smartphone-xtt5555s\",\n  \"vendor\": \"67987a3b567565f1a476808c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/staff/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"staff",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignVendorToProduct",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk4NmQ0NTgxMTk0OTAwYmYzYzc4ZWEiLCJyb2xlIjoic3RhZmYiLCJpYXQiOjE3MzgwNTg0NjQsImV4cCI6MTczODA2MjA2NH0.Zh7pnNKrJc6zmDVYpVx_nj69uI9ji9wERBW4VNE8dio",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vendorId\":\"67987a3b567565f1a476808c\",\n    \"productId\":\"67987ffd73175fa4b77dff91\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/staff/setVendor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"staff",
+								"setVendor"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vendor",
+			"item": [
+				{
+					"name": "addProduct",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk4NmJkMzUxZGEyMTI3MzE0YWNiNTYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MzgwNTcyMzgsImV4cCI6MTczODA2MDgzOH0.8DU3Kih-xfAg6KypeFduBYZMRzwwAqRq3YtT84XMmX4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Meredes\",\n  \"description\": \"Latest TV with 128GB storage\",\n  \"category\": \"Electronics\",\n  \"startDate\": \"2025-01-01T00:00:00.000Z\",\n  \"expiryDate\": \"2025-01-08T00:00:00.000Z\",\n  \"deliveryOption\": \"Free Delivery\",\n  \"deliveryAmount\": 0,\n  \"images\": [\"image1.jpg\", \"image2.jpg\"],\n  \"oldPrice\": 499.99,\n  \"newPrice\": 399.99,\n  \"productURL\": \"https://example.com/products/smartphone-xtt555dsjfss5\",\n  \"vendor\": \"67987a3b567565f1a476808c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/vendor/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vendor",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllProduct",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzk4NmQ0NTgxMTk0OTAwYmYzYzc4ZWEiLCJyb2xlIjoic3RhZmYiLCJpYXQiOjE3MzgwNTg0NjQsImV4cCI6MTczODA2MjA2NH0.Zh7pnNKrJc6zmDVYpVx_nj69uI9ji9wERBW4VNE8dio",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/vendor/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vendor",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "getAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/user/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchProduct",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\":\"iphone\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
